@@ -48,16 +48,19 @@ const moveTile = (el) => {
 
 // Check if the user complete the puzzle
 const checkTiles = (tiles) => {
-  let check = "true";
-
-  console.log(tiles.length);
+  let completed = true;
 
   for (let index = 0; index < tiles.length - 2; index++) {
-    if (tiles[index] !== index + 1) {
-      check = "false";
+    // Note that the element.innerHTML is always a string, so we need to convert it beck to number
+    if (parseInt(tiles[index].innerHTML) !== index + 1) {
+      completed = false;
     }
   }
-  console.log(check);
+
+  if (completed) {
+    window.alert("Congrats! You completed the puzzle.");
+    location.reload();
+  }
 };
 
 // Add event listener on each tile
