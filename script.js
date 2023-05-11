@@ -48,18 +48,18 @@ const moveTile = (el) => {
 
 // Check if the user complete the puzzle
 const checkTiles = (tiles) => {
-  // let completed = true;
+  let completed = true;
 
   // * Note that the element.innerHTML is always a string, so we need to convert it beck to number
-  // for (let index = 0; index < tiles.length - 2; index++) {
-  //   if (parseInt(tiles[index].innerHTML) !== index + 1) {
-  //     completed = false;
-  //   }
-  // }
+  for (let index = 0; index < tiles.length - 2; index++) {
+    if (parseInt(tiles[index].innerHTML) !== index + 1) {
+      completed = false;
+    }
+  }
 
-  const completed = tiles.every((tile, index) => {
-    return parseInt(tile.innerHTML) === index + 1;
-  });
+  // const completed = tiles.every((tile, index) => {
+  //   return parseInt(tile.innerHTML) === index + 1;
+  // });
 
   if (completed) {
     window.alert("Congrats! You completed the puzzle.");
